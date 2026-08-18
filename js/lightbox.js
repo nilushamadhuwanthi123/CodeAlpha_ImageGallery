@@ -471,6 +471,17 @@ class Lightbox {
 
   #onKey(e) {
     if (!this.isOpen) return;
+    // A <dialog> opened from the lightbox (add-to-collection prompts) sits above
+    // it and owns the keyboard while it is up. Without this guard the shortcuts
+    // below swallow ordinary typing - naming a collection "Film" was impossible
+    // because f and i were intercepted - and Escape closed the lightbox behind
+    // the dialog as well as the dialog itself.
+    if (document.querySelector('dialog[open]')) return;
+    const target = e.target;
+    if (target instanceof HTMLElement &&
+        (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
+    // Leave browser and OS chords alone: Ctrl/Cmd+F, Ctrl/Cmd+0 and friends.
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
     switch (e.key) {
       case 'Escape': e.preventDefault(); this.close(); break;
       case 'ArrowLeft': e.preventDefault(); this.prev(); break;

@@ -1,0 +1,148 @@
+/* ============================================================
+   MIREVA — gallery: masonry · grid · focus
+   ============================================================ */
+
+.gallery-toolbar {
+  position: sticky; top: var(--topbar-h); z-index: 20;
+  display: grid; gap: var(--sp-3);
+  padding: var(--sp-4) 0;
+  background: color-mix(in srgb, var(--background) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--sp-5);
+}
+.gallery-toolbar__row { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; }
+.gallery-toolbar .search-field { flex: 1 1 240px; min-width: 0; }
+
+.category-rail {
+  display: flex; gap: var(--sp-2); overflow-x: auto;
+  padding-bottom: 2px; scrollbar-width: none;
+  margin-inline: calc(var(--sp-4) * -1); padding-inline: var(--sp-4);
+}
+.category-rail::-webkit-scrollbar { display: none; }
+.category-rail .chip { flex: none; }
+
+.result-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+  flex-wrap: wrap; margin-bottom: var(--sp-4);
+}
+.result-bar__count { font-size: var(--fs-sm); color: var(--text-secondary); }
+.result-bar__count strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.active-filters { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.filter-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 6px 4px 12px; border-radius: var(--r-pill);
+  background: var(--primary-soft); color: var(--primary);
+  font-size: var(--fs-2xs); font-weight: 700;
+}
+.filter-pill button { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; color: inherit; }
+.filter-pill button:hover { background: color-mix(in srgb, var(--primary) 22%, transparent); }
+.filter-pill svg { width: 12px; height: 12px; }
+
+/* ------------------------------ Filter panel ------------------------------ */
+.filters-panel {
+  display: grid; gap: var(--sp-5);
+  padding: var(--sp-5);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--surface);
+  margin-bottom: var(--sp-5);
+  animation: fade-up var(--dur-3) var(--ease-out) both;
+}
+.filters-panel__grid { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.filters-group { display: grid; gap: var(--sp-3); align-content: start; }
+.filters-group__options { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+
+/* ------------------------------ Layouts ------------------------------ */
+.gallery { min-height: 240px; }
+
+/* Masonry — CSS columns keep it dependency-free and reflow-cheap */
+.gallery[data-layout="masonry"] {
+  column-count: 2;
+  column-gap: var(--sp-3);
+}
+.gallery[data-layout="masonry"] .tile { break-inside: avoid; margin-bottom: var(--sp-3); width: 100%; }
+
+.gallery[data-layout="grid"] {
+  display: grid; gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 44vw, 260px), 1fr));
+}
+.gallery[data-layout="grid"] .tile__media { aspect-ratio: 1 / 1; }
+
+.gallery[data-layout="focus"] { display: grid; gap: var(--sp-6); max-width: 900px; margin-inline: auto; }
+.gallery[data-layout="focus"] .tile__media { aspect-ratio: auto; }
+.gallery[data-layout="focus"] .tile__caption { position: static; opacity: 1; transform: none; background: none; color: inherit; padding: var(--sp-3) 0 0; }
+.gallery[data-layout="focus"] .tile::after { display: none; }
+
+/* ------------------------------ Tile ------------------------------ */
+.tile {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  display: block; width: 100%; text-align: left;
+  transition: transform var(--dur-3) var(--ease), box-shadow var(--dur-3) var(--ease);
+  animation: fade-up var(--dur-4) var(--ease-out) both;
+}
+.tile:hover { transform: translateY(-4px); box-shadow: var(--sh-3); z-index: 2; }
+.tile__media { position: relative; overflow: hidden; background: var(--surface-soft); }
+.tile__media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--dur-4) var(--ease), filter var(--dur-3) var(--ease);
+}
+.tile:hover .tile__media img { transform: scale(1.055); }
+.tile__media.is-loading { min-height: 160px; }
+.tile__media.is-loading img { opacity: 0; }
+.tile__media img { opacity: 1; transition: opacity var(--dur-3) var(--ease), transform var(--dur-4) var(--ease); }
+
+.tile::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(18, 11, 15, 0.74), rgba(18, 11, 15, 0.06) 46%, transparent 70%);
+  opacity: 0; transition: opacity var(--dur-3) var(--ease);
+}
+.tile:hover::after, .tile:focus-visible::after { opacity: 1; }
+
+.tile__caption {
+  position: absolute; inset: auto 0 0 0; z-index: 2;
+  padding: var(--sp-4);
+  display: grid; gap: 3px; color: #FFF8F5;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity var(--dur-3) var(--ease), transform var(--dur-3) var(--ease);
+}
+.tile:hover .tile__caption, .tile:focus-visible .tile__caption { opacity: 1; transform: none; }
+.tile__caption strong { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600; }
+.tile__caption span { font-size: var(--fs-3xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; opacity: 0.85; }
+
+.tile__fav {
+  position: absolute; top: var(--sp-3); right: var(--sp-3); z-index: 3;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, #1a1013 55%, transparent);
+  backdrop-filter: blur(8px);
+  color: #FFF8F5; border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0; transform: scale(0.85);
+  transition: opacity var(--dur-2) var(--ease), transform var(--dur-2) var(--ease), color var(--dur-2) var(--ease);
+}
+.tile:hover .tile__fav, .tile:focus-within .tile__fav, .tile__fav.is-on { opacity: 1; transform: none; }
+.tile__fav svg { width: 17px; height: 17px; }
+.tile__fav.is-on { color: var(--primary); background: color-mix(in srgb, #1a1013 62%, transparent); }
+.tile__fav.is-on svg { fill: currentColor; }
+.tile__fav:hover { transform: scale(1.08); }
+
+.tile__badge {
+  position: absolute; top: var(--sp-3); left: var(--sp-3); z-index: 3;
+  padding: 3px 9px; border-radius: var(--r-pill);
+  font-size: var(--fs-3xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  background: color-mix(in srgb, #1a1013 55%, transparent);
+  backdrop-filter: blur(8px); color: var(--highlight);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* Skeleton tiles while first paint settles */
+.tile-skeleton { border-radius: var(--r-lg); margin-bottom: var(--sp-3); break-inside: avoid; }
+
+@media (min-width: 640px)  { .gallery[data-layout="masonry"] { column-count: 3; } }
+@media (min-width: 1040px) { .gallery[data-layout="masonry"] { column-count: 3; column-gap: var(--sp-4); } .gallery[data-layout="masonry"] .tile { margin-bottom: var(--sp-4); } }
+@media (min-width: 1400px) { .gallery[data-layout="masonry"] { column-count: 4; } }
+@media (min-width: 1900px) { .gallery[data-layout="masonry"] { column-count: 5; } }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img">
+  <defs>
+  <linearGradient id="bg1028" x1="0.000" y1="0.500" x2="1.000" y2="0.500">
+    <stop offset="0" stop-color="#132A1F"/>
+    <stop offset="1" stop-color="#2F6B4F"/>
+  </linearGradient>
+  <radialGradient id="vig1028" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1028" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="990" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1028" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="56"/>
+  </filter>
+  <filter id="soft21028" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="27"/>
+  </filter>
+  </defs>
+  <rect width="640" height="640" fill="url(#bg1028)"/>
+  <g>
+    <circle cx="346" cy="289" r="225" fill="#F1E4C3" opacity="0.16" filter="url(#soft1028)"/>
+    <circle cx="346" cy="289" r="86" fill="#F1E4C3" opacity="0.72"/>
+    <path d="M0 329 Q 225 306 640 341 L 640 640 L 0 640 Z" fill="#2F6B4F" opacity="1.00"/>
+    <path d="M0 381 Q 307 352 640 396 L 640 640 L 0 640 Z" fill="#7FAE7A" opacity="0.87"/>
+    <path d="M0 433 Q 454 412 640 443 L 640 640 L 0 640 Z" fill="#D6D2A5" opacity="0.74"/>
+    <path d="M0 485 Q 171 476 640 489 L 640 640 L 0 640 Z" fill="#F1E4C3" opacity="0.61"/>
+    <path d="M0 536 Q 377 510 640 550 L 640 640 L 0 640 Z" fill="#2F6B4F" opacity="0.48"/>
+    <path d="M0 588 Q 463 558 640 603 L 640 640 L 0 640 Z" fill="#7FAE7A" opacity="0.35"/>
+  </g>
+  <rect width="640" height="640" filter="url(#grain1028)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="640" fill="url(#vig1028)"/>
+</svg>

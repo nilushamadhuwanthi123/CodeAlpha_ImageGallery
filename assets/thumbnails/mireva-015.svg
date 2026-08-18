@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 960" width="640" height="960" role="img">
+  <defs>
+  <linearGradient id="bg1105" x1="0.000" y1="0.500" x2="1.000" y2="0.500">
+    <stop offset="0" stop-color="#0E2439"/>
+    <stop offset="1" stop-color="#1D4E6B"/>
+  </linearGradient>
+  <radialGradient id="vig1105" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1105" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="225" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1105" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="60"/>
+  </filter>
+  <filter id="soft21105" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="22"/>
+  </filter>
+  </defs>
+  <rect width="640" height="960" fill="url(#bg1105)"/>
+  <g>
+    <circle cx="464" cy="405" r="137" fill="#F2DFC0" opacity="0.16" filter="url(#soft1105)"/>
+    <circle cx="464" cy="405" r="53" fill="#F2DFC0" opacity="0.72"/>
+    <path d="M0 467 Q 130 422 640 489 L 640 960 L 0 960 Z" fill="#1D4E6B" opacity="1.00"/>
+    <path d="M0 590 Q 382 555 640 608 L 640 960 L 0 960 Z" fill="#3E8EA8" opacity="0.87"/>
+    <path d="M0 713 Q 459 683 640 728 L 640 960 L 0 960 Z" fill="#8FC4C6" opacity="0.74"/>
+    <path d="M0 837 Q 412 809 640 850 L 640 960 L 0 960 Z" fill="#F2DFC0" opacity="0.61"/>
+  </g>
+  <rect width="640" height="960" filter="url(#grain1105)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="960" fill="url(#vig1105)"/>
+</svg>

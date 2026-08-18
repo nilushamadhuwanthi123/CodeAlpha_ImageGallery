@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 427" width="640" height="427" role="img">
+  <defs>
+  <linearGradient id="bg1056" x1="0.854" y1="0.146" x2="0.146" y2="0.854">
+    <stop offset="0" stop-color="#1B1A21"/>
+    <stop offset="1" stop-color="#3B3A45"/>
+  </linearGradient>
+  <radialGradient id="vig1056" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1056" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="101" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1056" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="44"/>
+  </filter>
+  <filter id="soft21056" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+  </defs>
+  <rect width="640" height="427" fill="url(#bg1056)"/>
+  <g>
+    <rect x="12" y="12" width="82" height="82" rx="0" fill="#A8A3A9" opacity="0.45"/>
+    <rect x="114" y="8" width="91" height="91" rx="53" fill="#6E6B77" opacity="0.57"/>
+    <rect x="321" y="1" width="104" height="104" rx="53" fill="#E3DCD6" opacity="0.30"/>
+    <rect x="436" y="9" width="89" height="89" rx="53" fill="#E3DCD6" opacity="0.20"/>
+    <rect x="12" y="119" width="82" height="82" rx="0" fill="#A8A3A9" opacity="0.19"/>
+    <rect x="108" y="109" width="103" height="103" rx="0" fill="#6E6B77" opacity="0.29"/>
+    <rect x="216" y="110" width="101" height="101" rx="0" fill="#3B3A45" opacity="0.20"/>
+    <rect x="431" y="111" width="98" height="98" rx="0" fill="#6E6B77" opacity="0.59"/>
+    <rect x="538" y="112" width="97" height="97" rx="53" fill="#3B3A45" opacity="0.68"/>
+    <rect x="438" y="225" width="84" height="84" rx="0" fill="#E3DCD6" opacity="0.20"/>
+    <rect x="539" y="220" width="94" height="94" rx="0" fill="#E3DCD6" opacity="0.44"/>
+    <rect x="11" y="331" width="85" height="86" rx="0" fill="#A8A3A9" opacity="0.38"/>
+    <rect x="111" y="324" width="99" height="99" rx="0" fill="#3B3A45" opacity="0.26"/>
+    <rect x="226" y="333" width="82" height="82" rx="0" fill="#3B3A45" opacity="0.41"/>
+    <circle cx="308" cy="256" r="171" fill="#E3DCD6" opacity="0.14" filter="url(#soft1056)"/>
+  </g>
+  <rect width="640" height="427" filter="url(#grain1056)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="427" fill="url(#vig1056)"/>
+</svg>

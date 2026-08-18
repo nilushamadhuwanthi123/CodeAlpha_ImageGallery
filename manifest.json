@@ -1,0 +1,27 @@
+{
+  "name": "MIREVA — Premium Visual Gallery & Creative Image Workspace",
+  "short_name": "MIREVA",
+  "description": "Discover, curate and experience your images in one beautiful, offline-capable workspace.",
+  "id": "/mireva/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFF9F3",
+  "theme_color": "#E85D4A",
+  "categories": ["photo", "productivity", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Gallery", "url": "./pages/gallery.html" },
+    { "name": "Favourites", "url": "./pages/favorites.html" },
+    { "name": "Upload", "url": "./pages/upload.html" },
+    { "name": "Presentation", "url": "./pages/presentation.html" }
+  ]
+}

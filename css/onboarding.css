@@ -1,0 +1,90 @@
+/* ============================================================
+   MIREVA — onboarding + personalisation
+   ============================================================ */
+
+.onboarding {
+  position: fixed; inset: 0; z-index: var(--z-onboarding);
+  display: grid; place-items: center;
+  background: var(--background);
+  overflow: hidden;
+}
+.onboarding::before {
+  content: ""; position: absolute; inset: -20%;
+  background:
+    radial-gradient(circle at 22% 24%, color-mix(in srgb, var(--primary) 30%, transparent), transparent 46%),
+    radial-gradient(circle at 78% 72%, color-mix(in srgb, var(--secondary) 26%, transparent), transparent 48%),
+    radial-gradient(circle at 60% 12%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 42%);
+  filter: blur(20px);
+  animation: float-y 14s var(--ease) infinite;
+}
+[data-reduce-motion="true"] .onboarding::before { animation: none; }
+
+.onboarding__inner {
+  position: relative; z-index: 2;
+  width: min(1060px, calc(100vw - 2rem));
+  max-height: calc(100svh - 2rem);
+  overflow-y: auto;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-3);
+  padding: var(--sp-6) var(--sp-5);
+  display: grid; gap: var(--sp-5);
+}
+
+.ob-slide { display: none; gap: var(--sp-5); animation: fade-up var(--dur-4) var(--ease-out) both; }
+.ob-slide.is-active { display: grid; }
+.ob-slide__copy { display: grid; gap: var(--sp-3); align-content: center; }
+.ob-slide__copy h2 { font-size: clamp(1.9rem, 5vw, 3.1rem); }
+.ob-slide__copy p { color: var(--text-secondary); font-size: var(--fs-lg); max-width: 48ch; }
+
+.ob-wordmark { font-family: var(--font-display); font-size: clamp(3rem, 11vw, 6.5rem); line-height: 0.94; letter-spacing: -0.03em; }
+.ob-wordmark span {
+  background: linear-gradient(100deg, var(--primary), var(--secondary) 48%, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.ob-features { display: grid; gap: var(--sp-3); }
+.ob-feature {
+  display: flex; align-items: flex-start; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface);
+}
+.ob-feature__icon { flex: none; width: 36px; height: 36px; border-radius: var(--r-sm); display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+.ob-feature__icon svg { width: 17px; height: 17px; }
+.ob-feature strong { font-size: var(--fs-sm); display: block; }
+.ob-feature span { font-size: var(--fs-2xs); color: var(--text-secondary); }
+
+.ob-visual {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-2);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.ob-visual img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-md); }
+.ob-visual img:nth-child(2) { margin-top: var(--sp-5); }
+.ob-visual img:nth-child(3) { margin-top: calc(var(--sp-5) * -0.5); }
+
+.ob-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; }
+.ob-dots { display: flex; gap: var(--sp-2); }
+.ob-dot { width: 26px; height: 4px; border-radius: 999px; background: var(--border-strong); transition: background-color var(--dur-2) var(--ease), width var(--dur-2) var(--ease); }
+.ob-dot.is-active { background: var(--primary); width: 40px; }
+
+/* Personalisation */
+.taste-grid { display: grid; gap: var(--sp-2); grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+.taste-chip {
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface); font-size: var(--fs-sm); font-weight: 600;
+  transition: all var(--dur-2) var(--ease);
+}
+.taste-chip:hover { border-color: var(--primary); transform: translateY(-2px); }
+.taste-chip[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+.taste-chip__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); flex: none; }
+.taste-chip[aria-pressed="true"] .taste-chip__dot { background: var(--primary); }
+
+@media (min-width: 860px) {
+  .onboarding__inner { padding: var(--sp-7); }
+  .ob-slide { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: var(--sp-8); }
+}

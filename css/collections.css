@@ -1,0 +1,60 @@
+/* ============================================================
+   MIREVA — collections & favourites
+   ============================================================ */
+
+.collection-grid {
+  display: grid; gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fill, minmax(clamp(230px, 80vw, 300px), 1fr));
+}
+.collection-card {
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--surface); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform var(--dur-3) var(--ease), box-shadow var(--dur-3) var(--ease);
+  animation: fade-up var(--dur-4) var(--ease-out) both;
+}
+.collection-card:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
+.collection-card__cover {
+  display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr;
+  gap: 2px; aspect-ratio: 16 / 10; background: var(--surface-soft);
+}
+.collection-card__cover img { width: 100%; height: 100%; object-fit: cover; }
+.collection-card__cover img:first-child { grid-row: 1 / 3; }
+.collection-card__cover .empty-cover {
+  grid-column: 1 / -1; grid-row: 1 / -1;
+  display: grid; place-items: center; color: var(--text-muted);
+  background: repeating-linear-gradient(45deg, var(--surface-soft), var(--surface-soft) 12px, var(--surface) 12px, var(--surface) 24px);
+}
+.collection-card__body { padding: var(--sp-4); display: grid; gap: var(--sp-3); align-content: start; flex: 1; }
+.collection-card__title { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 600; }
+.collection-card__meta { font-size: var(--fs-2xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+.collection-card__actions { display: flex; gap: 2px; flex-wrap: wrap; }
+
+.picker-grid {
+  display: grid; gap: var(--sp-2);
+  /* Fixed square cells: aspect-ratio inside an auto-sized grid row does not
+     contribute to row height in every engine, so the size is explicit here. */
+  grid-template-columns: repeat(auto-fill, 92px);
+  grid-auto-rows: 92px;
+  justify-content: space-between;
+  max-height: 46vh; overflow-y: auto; padding: 2px;
+}
+.picker-tile {
+  position: relative; border-radius: var(--r-sm); overflow: hidden;
+  width: 92px; height: 92px;
+  border: 2px solid transparent; background: var(--surface-soft);
+}
+.picker-tile img { width: 100%; height: 100%; object-fit: cover; }
+.picker-tile[aria-pressed="true"] { border-color: var(--primary); }
+.picker-tile[aria-pressed="true"]::after {
+  content: ""; position: absolute; inset: 0;
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+.picker-tile__check {
+  position: absolute; top: 5px; right: 5px; z-index: 2;
+  width: 20px; height: 20px; border-radius: 50%;
+  display: none; place-items: center;
+  background: var(--primary); color: #fff;
+}
+.picker-tile__check svg { width: 12px; height: 12px; }
+.picker-tile[aria-pressed="true"] .picker-tile__check { display: grid; }

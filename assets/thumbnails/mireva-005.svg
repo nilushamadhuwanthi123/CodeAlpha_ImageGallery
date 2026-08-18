@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 960" width="640" height="960" role="img">
+  <defs>
+  <linearGradient id="bg1035" x1="0.854" y1="0.146" x2="0.146" y2="0.854">
+    <stop offset="0" stop-color="#0B1F1C"/>
+    <stop offset="1" stop-color="#27564A"/>
+  </linearGradient>
+  <radialGradient id="vig1035" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1035" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1035" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="49"/>
+  </filter>
+  <filter id="soft21035" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="24"/>
+  </filter>
+  </defs>
+  <rect width="640" height="960" fill="url(#bg1035)"/>
+  <g>
+    <circle cx="138" cy="-13" r="393" fill="#5E9A7E" opacity="0.62" filter="url(#soft1035)"/>
+    <circle cx="130" cy="-88" r="401" fill="#5E9A7E" opacity="0.72" filter="url(#soft1035)"/>
+    <circle cx="119" cy="87" r="581" fill="#A8C6A0" opacity="0.57" filter="url(#soft1035)"/>
+    <circle cx="55" cy="767" r="366" fill="#27564A" opacity="0.78" filter="url(#soft1035)"/>
+    <circle cx="39" cy="8" r="471" fill="#27564A" opacity="0.73" filter="url(#soft1035)"/>
+    <path d="M0 647 Q 320 521 640 647" fill="none" stroke="#EADFC0" stroke-width="1.2" opacity="0.32"/>
+    <path d="M0 519 Q 320 426 640 519" fill="none" stroke="#EADFC0" stroke-width="1.2" opacity="0.20"/>
+    <path d="M0 379 Q 320 323 640 379" fill="none" stroke="#EADFC0" stroke-width="1.2" opacity="0.30"/>
+    <path d="M0 152 Q 320 42 640 152" fill="none" stroke="#EADFC0" stroke-width="1.2" opacity="0.15"/>
+    <circle cx="417" cy="426" r="190" fill="none" stroke="#EADFC0" stroke-width="1.4" opacity="0.31"/>
+  </g>
+  <rect width="640" height="960" filter="url(#grain1035)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="960" fill="url(#vig1035)"/>
+</svg>

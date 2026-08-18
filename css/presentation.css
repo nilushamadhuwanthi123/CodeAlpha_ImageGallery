@@ -1,0 +1,64 @@
+/* ============================================================
+   MIREVA — presentation / slideshow mode
+   ============================================================ */
+
+.stage-wrap {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: #100A0D;
+  border: 1px solid var(--border);
+  aspect-ratio: 16 / 10;
+  display: grid; place-items: center;
+}
+.stage-wrap:fullscreen { border-radius: 0; aspect-ratio: auto; height: 100vh; width: 100vw; }
+.stage-wrap:fullscreen .slide-caption { padding: var(--sp-6); }
+
+.slide {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  opacity: 0; transition: opacity var(--dur-4) var(--ease);
+}
+.slide.is-active { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit: contain; }
+.slide__bg {
+  position: absolute; inset: 0; z-index: -1;
+  background-size: cover; background-position: center;
+  filter: blur(42px) saturate(1.25) brightness(0.5);
+  transform: scale(1.16);
+}
+.slide.is-active img { animation: ken-burns 9s var(--ease) both; }
+[data-reduce-motion="true"] .slide.is-active img { animation: none; }
+
+.slide-caption {
+  position: absolute; inset: auto 0 0 0; z-index: 3;
+  padding: var(--sp-5);
+  background: linear-gradient(to top, rgba(10, 6, 8, 0.88), transparent);
+  color: #FFF8F5; display: grid; gap: 4px;
+}
+.slide-caption strong { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 600; }
+.slide-caption span { font-size: var(--fs-2xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; opacity: 0.75; }
+
+.slide-progress { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255, 255, 255, 0.14); z-index: 4; }
+.slide-progress__bar { height: 100%; background: var(--primary); width: 0; }
+
+.presenter-bar {
+  position: absolute; left: 50%; bottom: var(--sp-5); translate: -50% 0; z-index: 5;
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: rgba(18, 11, 15, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-pill);
+  opacity: 1; transition: opacity var(--dur-3) var(--ease);
+}
+.stage-wrap.is-idle .presenter-bar { opacity: 0; pointer-events: none; }
+.presenter-bar .icon-btn { color: rgba(255, 248, 245, 0.85); width: 38px; height: 38px; }
+.presenter-bar .icon-btn:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.presenter-bar .select {
+  background-color: rgba(255, 255, 255, 0.1); border-color: transparent; color: #FFF8F5;
+  padding: 0.35rem 2rem 0.35rem 0.7rem; font-size: var(--fs-2xs); border-radius: var(--r-pill);
+}
+.presenter-bar .select option { color: var(--text-primary); background: var(--surface); }
+
+.presentation-setup { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: var(--sp-5); }

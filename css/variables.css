@@ -1,0 +1,142 @@
+/* ============================================================
+   MIREVA — Design tokens
+   Warm editorial palette: coral · berry · peach · golden sand
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette (light) ---- */
+  --primary:        #E85D4A;
+  --primary-dark:   #C94B3C;
+  --primary-soft:   rgba(232, 93, 74, 0.12);
+  --secondary:      #C44569;
+  --accent:         #F4A261;
+  --highlight:      #E9C46A;
+
+  --background:     #FFF9F3;
+  --surface:        #FFFFFF;
+  --surface-soft:   #F8EEE8;
+  --surface-raised: #FFFFFF;
+
+  --text-primary:   #211A1D;
+  --text-secondary: #6B5E61;
+  --text-muted:     #9B8D90;
+  --text-invert:    #FFF8F5;
+
+  --border:         #E9DCD6;
+  --border-strong:  #D9C7BF;
+
+  --overlay:        rgba(24, 16, 20, 0.72);
+  --overlay-deep:   rgba(14, 9, 12, 0.94);
+  --scrim:          rgba(33, 26, 29, 0.06);
+
+  --success:        #3F8F6B;
+  --warning:        #C98A2E;
+  --danger:         #C0392B;
+  --info:           #3E7CA8;
+
+  /* ---- Typography ---- */
+  --font-display: "Playfair Display", "Iowan Old Style", Georgia, serif;
+  --font-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --fs-3xs: 0.6875rem;   /* 11 */
+  --fs-2xs: 0.75rem;     /* 12 */
+  --fs-xs:  0.8125rem;   /* 13 */
+  --fs-sm:  0.875rem;    /* 14 */
+  --fs-md:  0.9375rem;   /* 15 */
+  --fs-lg:  1.0625rem;   /* 17 */
+  --fs-xl:  1.375rem;    /* 22 */
+  --fs-2xl: 1.875rem;    /* 30 */
+  --fs-3xl: 2.5rem;      /* 40 */
+  --fs-4xl: 3.5rem;      /* 56 */
+
+  --lh-tight: 1.12;
+  --lh-snug: 1.32;
+  --lh-normal: 1.6;
+
+  --tracking-wide: 0.14em;
+  --tracking-label: 0.2em;
+
+  /* ---- Spacing scale ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 2.75rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* ---- Radii ---- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* ---- Elevation (warm-tinted, never neutral grey) ---- */
+  --sh-1: 0 1px 2px rgba(85, 46, 38, 0.06), 0 2px 8px rgba(85, 46, 38, 0.05);
+  --sh-2: 0 2px 6px rgba(85, 46, 38, 0.07), 0 10px 26px rgba(85, 46, 38, 0.08);
+  --sh-3: 0 6px 16px rgba(85, 46, 38, 0.10), 0 22px 54px rgba(85, 46, 38, 0.12);
+  --sh-focus: 0 0 0 3px rgba(232, 93, 74, 0.32);
+
+  /* ---- Motion ---- */
+  --dur-1: 140ms;
+  --dur-2: 240ms;
+  --dur-3: 340ms;
+  --dur-4: 520ms;
+  --ease: cubic-bezier(0.32, 0.72, 0.26, 1);
+  --ease-out: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --ease-in: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+
+  /* ---- Layout ---- */
+  --sidebar-w: 264px;
+  --sidebar-w-compact: 84px;
+  --topbar-h: 68px;
+  --bottomnav-h: 66px;
+  --content-max: 1560px;
+  --z-nav: 40;
+  --z-drawer: 60;
+  --z-lightbox: 80;
+  --z-palette: 90;
+  --z-toast: 100;
+  --z-onboarding: 110;
+}
+
+/* ============================ Dark theme ============================ */
+[data-theme="dark"] {
+  --primary:        #FF806E;
+  --primary-dark:   #E8654F;
+  --primary-soft:   rgba(255, 128, 110, 0.16);
+  --secondary:      #E76F93;
+  --accent:         #F6B37A;
+  --highlight:      #E9C46A;
+
+  --background:     #171216;
+  --surface:        #21191D;
+  --surface-soft:   #2A2024;
+  --surface-raised: #2A2024;
+
+  --text-primary:   #FFF8F5;
+  --text-secondary: #C8B9BD;
+  --text-muted:     #918187;
+  --text-invert:    #211A1D;
+
+  --border:         #3A2E33;
+  --border-strong:  #4C3C43;
+
+  --overlay:        rgba(10, 6, 9, 0.78);
+  --overlay-deep:   rgba(8, 5, 7, 0.96);
+  --scrim:          rgba(255, 248, 245, 0.05);
+
+  --success:        #6FBF97;
+  --warning:        #E0AE5D;
+  --danger:         #E8705F;
+  --info:           #78AECF;
+
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --sh-2: 0 2px 6px rgba(0, 0, 0, 0.45), 0 10px 26px rgba(0, 0, 0, 0.4);
+  --sh-3: 0 6px 16px rgba(0, 0, 0, 0.5), 0 22px 54px rgba(0, 0, 0, 0.55);
+  --sh-focus: 0 0 0 3px rgba(255, 128, 110, 0.38);
+}

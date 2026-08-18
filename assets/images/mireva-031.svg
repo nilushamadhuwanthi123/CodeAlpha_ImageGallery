@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" role="img">
+  <defs>
+  <linearGradient id="bg1217" x1="0.047" y1="0.289" x2="0.953" y2="0.711">
+    <stop offset="0" stop-color="#1C1216"/>
+    <stop offset="1" stop-color="#432630"/>
+  </linearGradient>
+  <radialGradient id="vig1217" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1217" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="290" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1217" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="89"/>
+  </filter>
+  <filter id="soft21217" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="26"/>
+  </filter>
+  </defs>
+  <rect width="1600" height="1067" fill="url(#bg1217)"/>
+  <g>
+    <path d="M -50 826 C 480 512 1120 999 1650 685 L 1650 816 C 1120 1130 480 643 -50 957 Z" fill="#8A4A55" opacity="0.55" filter="url(#soft21217)"/>
+    <path d="M -50 816 C 480 591 1120 896 1650 671 L 1650 744 C 1120 969 480 665 -50 890 Z" fill="#D18E8A" opacity="0.54" filter="url(#soft21217)"/>
+    <path d="M -50 750 C 480 503 1120 1159 1650 913 L 1650 1055 C 1120 1302 480 646 -50 893 Z" fill="#D18E8A" opacity="0.41" filter="url(#soft21217)"/>
+    <path d="M -50 520 C 480 265 1120 1008 1650 753 L 1650 847 C 1120 1102 480 359 -50 614 Z" fill="#F3D9CC" opacity="0.58" filter="url(#soft21217)"/>
+    <path d="M -50 758 C 480 540 1120 394 1650 176 L 1650 346 C 1120 564 480 710 -50 928 Z" fill="#8A4A55" opacity="0.57" filter="url(#soft21217)"/>
+  </g>
+  <rect width="1600" height="1067" filter="url(#grain1217)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="1600" height="1067" fill="url(#vig1217)"/>
+</svg>

@@ -1,0 +1,36 @@
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# ---- Editors ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-*
+
+# ---- Dependencies / build ----
+node_modules/
+dist/
+build/
+.cache/
+*.log
+npm-debug.log*
+
+# ---- Secrets — never commit credentials ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+.netrc
+
+# ---- Local scratch ----
+tmp/
+temp/
+screenshots/.tmp/
+
+# Local PDF-build source (not part of the app)
+_showcase.html

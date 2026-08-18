@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Favourites — MIREVA</title>
+  <meta name="description" content="The images you have marked as favourites in MIREVA, stored locally on your device.">
+  <meta name="theme-color" content="#FFF9F3">
+  <meta name="color-scheme" content="light dark">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <script>
+    /* Apply the stored theme before first paint to avoid a flash of the wrong palette. */
+    (function () {
+      try {
+        var mode = JSON.parse(localStorage.getItem('mireva_theme') || '"system"');
+        var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        var prefs = JSON.parse(localStorage.getItem('mireva_preferences') || '{}');
+        document.documentElement.dataset.reduceMotion = String(Boolean(prefs.reduceMotion));
+        document.documentElement.dataset.animations = prefs.animations === false ? 'off' : 'on';
+      } catch (e) { /* storage unavailable — fall back to the light theme */ }
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/gallery.css">
+  <link rel="stylesheet" href="../css/lightbox.css">
+  <link rel="stylesheet" href="../css/upload.css">
+  <link rel="stylesheet" href="../css/collections.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <link rel="stylesheet" href="../css/presentation.css">
+  <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/onboarding.css">
+  <link rel="stylesheet" href="../css/command.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <div class="app__body">
+      <main class="main page-enter" id="main">
+        <div class="page-head">
+          <p class="eyebrow">Saved on this device</p>
+          <h1>Favourites</h1>
+          <p>Every image you have marked with a heart, ready to open, present or add to a collection.</p>
+        </div>
+
+        <div class="result-bar">
+          <p class="result-bar__count" data-result-count aria-live="polite"></p>
+          <div class="row">
+            <div data-layout-switcher></div>
+            <button class="btn btn--ghost btn--sm" type="button" data-clear-favorites>Clear all</button>
+          </div>
+        </div>
+
+        <div class="gallery" data-gallery data-layout="masonry" aria-label="Favourite images"></div>
+
+        <div class="empty-state hide" data-empty>
+          <span class="empty-state__icon" data-empty-icon></span>
+          <h3>No favourites yet.</h3>
+          <p>Start building your visual collection — tap the heart on any image and it will appear here.</p>
+          <a class="btn btn--primary" href="gallery.html">Explore Gallery</a>
+        </div>
+      </main>
+    </div>
+  </div>
+  <noscript>
+    <div style="padding:2rem;text-align:center">
+      <h1>MIREVA needs JavaScript</h1>
+      <p>This gallery is built with vanilla JavaScript. Please enable it to browse your images.</p>
+    </div>
+  </noscript>
+  <script type="module" src="../js/pages/favorites-page.js"></script>
+</body>
+</html>

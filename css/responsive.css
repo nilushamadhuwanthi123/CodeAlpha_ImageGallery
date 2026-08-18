@@ -1,0 +1,70 @@
+/* ============================================================
+   MIREVA — breakpoint refinements
+   Each breakpoint is designed, not merely scaled.
+   ============================================================ */
+
+/* ---------- Small phones (≤ 380px) ---------- */
+@media (max-width: 380px) {
+  :root { --fs-md: 0.9rem; --sp-4: 0.85rem; }
+  .hero__actions .btn { flex: 1 1 100%; }
+  .bottom-nav__item span { font-size: 9px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .collage { aspect-ratio: 4 / 5; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 639px) {
+  .page-head h1 { font-size: 1.85rem; }
+  .collage__chip { display: none; }
+  .lightbox__foot { grid-template-columns: 1fr; }
+  .lightbox__meta { gap: var(--sp-4); }
+  .lightbox__desc { display: none; }
+  .lightbox__nav { width: 42px; height: 42px; }
+  .section-head { align-items: flex-start; }
+  .modal__box { padding: var(--sp-5); border-radius: var(--r-lg); }
+  .strip__card { width: 74vw; }
+}
+
+/* ---------- Tablets ---------- */
+@media (min-width: 640px) and (max-width: 1039px) {
+  .main { padding: var(--sp-6) var(--sp-5) calc(var(--bottomnav-h) + var(--sp-7)); }
+  .hero { grid-template-columns: 1fr; }
+  .collage { aspect-ratio: 3 / 2; }
+  .actions-grid { grid-template-columns: repeat(2, 1fr); }
+  .strip__card { width: 300px; }
+}
+
+/* ---------- Landscape phones ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .lightbox__foot { display: none; }
+  .lightbox__bar { padding: var(--sp-2) var(--sp-4); }
+  .hero { padding-block: var(--sp-5); }
+}
+
+/* ---------- Ultrawide ---------- */
+@media (min-width: 2100px) {
+  :root { --content-max: 1900px; }
+  .hero__greeting { font-size: 4.4rem; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .sidebar, .bottom-nav, .topbar, .toast-region, .lightbox, .gallery-toolbar { display: none !important; }
+  body { background: #fff; color: #000; }
+  .tile { break-inside: avoid; }
+}
+
+/* ---------- Touch refinements ---------- */
+@media (hover: none) {
+  .tile__caption { opacity: 1; transform: none; }
+  .tile::after { opacity: 1; }
+  .tile__fav { opacity: 1; transform: none; }
+  .tile:hover { transform: none; }
+  .tile:hover .tile__media img { transform: none; }
+}
+
+/* ---------- High contrast ---------- */
+@media (prefers-contrast: more) {
+  :root { --border: #8A7A76; --text-secondary: #3E3336; }
+  .tile, .card, .panel { border-width: 2px; }
+}

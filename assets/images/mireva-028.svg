@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500" role="img">
+  <defs>
+  <linearGradient id="bg1196" x1="0.854" y1="0.146" x2="0.146" y2="0.854">
+    <stop offset="0" stop-color="#2A0F22"/>
+    <stop offset="1" stop-color="#63204A"/>
+  </linearGradient>
+  <radialGradient id="vig1196" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1196" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="80" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1196" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="106"/>
+  </filter>
+  <filter id="soft21196" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="35"/>
+  </filter>
+  </defs>
+  <rect width="1000" height="1500" fill="url(#bg1196)"/>
+  <g>
+    <path d="M -50 717 C 300 440 700 1060 1050 784 L 1050 881 C 700 1158 300 538 -50 814 Z" fill="#E07A78" opacity="0.41" filter="url(#soft21196)"/>
+    <path d="M -50 798 C 300 537 700 451 1050 190 L 1050 459 C 700 720 300 806 -50 1067 Z" fill="#A8386A" opacity="0.42" filter="url(#soft21196)"/>
+    <path d="M -50 1210 C 300 828 700 1489 1050 1107 L 1050 1267 C 700 1649 300 988 -50 1370 Z" fill="#E07A78" opacity="0.50" filter="url(#soft21196)"/>
+    <path d="M -50 1228 C 300 781 700 787 1050 341 L 1050 607 C 700 1053 300 1047 -50 1494 Z" fill="#E07A78" opacity="0.53" filter="url(#soft21196)"/>
+  </g>
+  <rect width="1000" height="1500" filter="url(#grain1196)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="1000" height="1500" fill="url(#vig1196)"/>
+</svg>

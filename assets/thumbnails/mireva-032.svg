@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 427" width="640" height="427" role="img">
+  <defs>
+  <linearGradient id="bg1224" x1="0.854" y1="0.146" x2="0.146" y2="0.854">
+    <stop offset="0" stop-color="#1C1216"/>
+    <stop offset="1" stop-color="#432630"/>
+  </linearGradient>
+  <radialGradient id="vig1224" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1224" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="423" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1224" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="31"/>
+  </filter>
+  <filter id="soft21224" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+  </defs>
+  <rect width="640" height="427" fill="url(#bg1224)"/>
+  <g>
+    <ellipse cx="250" cy="270" rx="118" ry="136" fill="#432630" opacity="0.9" filter="url(#soft21224)"/>
+    <path d="M 394 0 L 435 0 L 471 427 L 430 427 Z" fill="#F3D9CC" opacity="0.07" filter="url(#soft21224)"/>
+    <path d="M 362 0 L 457 0 L 442 427 L 348 427 Z" fill="#F3D9CC" opacity="0.17" filter="url(#soft21224)"/>
+    <path d="M 362 0 L 429 0 L 483 427 L 415 427 Z" fill="#F3D9CC" opacity="0.14" filter="url(#soft21224)"/>
+    <path d="M 239 0 L 341 0 L 333 427 L 231 427 Z" fill="#F3D9CC" opacity="0.08" filter="url(#soft21224)"/>
+    <circle cx="111" cy="87" r="23" fill="#F3D9CC" opacity="0.55"/>
+  </g>
+  <rect width="640" height="427" filter="url(#grain1224)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="427" fill="url(#vig1224)"/>
+</svg>

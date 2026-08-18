@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Settings — MIREVA</title>
+  <meta name="description" content="Theme, layout, motion, storage and reset options for your local MIREVA workspace.">
+  <meta name="theme-color" content="#FFF9F3">
+  <meta name="color-scheme" content="light dark">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+  <script>
+    /* Apply the stored theme before first paint to avoid a flash of the wrong palette. */
+    (function () {
+      try {
+        var mode = JSON.parse(localStorage.getItem('mireva_theme') || '"system"');
+        var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        var prefs = JSON.parse(localStorage.getItem('mireva_preferences') || '{}');
+        document.documentElement.dataset.reduceMotion = String(Boolean(prefs.reduceMotion));
+        document.documentElement.dataset.animations = prefs.animations === false ? 'off' : 'on';
+      } catch (e) { /* storage unavailable — fall back to the light theme */ }
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/gallery.css">
+  <link rel="stylesheet" href="../css/lightbox.css">
+  <link rel="stylesheet" href="../css/upload.css">
+  <link rel="stylesheet" href="../css/collections.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <link rel="stylesheet" href="../css/presentation.css">
+  <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/onboarding.css">
+  <link rel="stylesheet" href="../css/command.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <div class="app__body">
+      <main class="main page-enter" id="main">
+        <div class="page-head">
+          <p class="eyebrow">Preferences</p>
+          <h1>Settings</h1>
+          <p>Everything here is stored on this device only. MIREVA has no account, no server and no cloud sync.</p>
+        </div>
+
+        <div class="settings">
+          <section class="settings-group" aria-labelledby="appearance-title">
+            <div class="settings-group__head">
+              <h3 id="appearance-title">Appearance</h3>
+              <p>Choose how MIREVA looks on this device.</p>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Theme</strong><span>Light, dark, or follow your system.</span></div>
+              <div class="theme-choices" data-theme-choices role="group" aria-label="Theme"></div>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Default gallery layout</strong><span>Applied when you open the gallery.</span></div>
+              <div data-layout-switcher></div>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Image quality</strong><span>High loads full-resolution images in the gallery grid.</span></div>
+              <label class="visually-hidden" for="quality-select">Image quality</label>
+              <select class="select" id="quality-select" style="width:auto">
+                <option value="standard">Standard</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="settings-group" aria-labelledby="motion-title">
+            <div class="settings-group__head">
+              <h3 id="motion-title">Motion &amp; interaction</h3>
+              <p>MIREVA already respects your operating system's reduced-motion setting. These options give you direct control.</p>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Reduce motion</strong><span>Removes floating movement, slide transitions and hover lift.</span></div>
+              <label class="switch"><input type="checkbox" data-setting="reduceMotion"><span class="switch__track"></span></label>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Animations</strong><span>Turn off every transition and animation entirely.</span></div>
+              <label class="switch"><input type="checkbox" data-setting="animations"><span class="switch__track"></span></label>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Confirm destructive actions</strong><span>Ask before deleting images or collections.</span></div>
+              <label class="switch"><input type="checkbox" data-setting="confirmDestructive"><span class="switch__track"></span></label>
+            </div>
+          </section>
+
+          <section class="settings-group" aria-labelledby="interests-title">
+            <div class="settings-group__head">
+              <h3 id="interests-title">What you love to explore</h3>
+              <p>Chosen categories are surfaced first in your dashboard's featured strip.</p>
+            </div>
+            <div class="setting-row" style="display:block">
+              <div class="taste-grid" data-interests role="group" aria-label="Interests"></div>
+            </div>
+          </section>
+
+          <section class="settings-group" aria-labelledby="storage-title">
+            <div class="settings-group__head">
+              <h3 id="storage-title">Storage</h3>
+              <p>Uploaded images live in IndexedDB; preferences live in localStorage.</p>
+            </div>
+            <div class="setting-row" style="display:block">
+              <div class="storage-meter">
+                <div class="spread"><span class="label">Local usage</span><span data-storage-label>—</span></div>
+                <div class="storage-meter__track"><div class="storage-meter__bar" data-storage-bar></div></div>
+                <p class="muted" style="font-size:var(--fs-2xs)" data-storage-detail></p>
+              </div>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Hidden library images</strong><span data-hidden-count>None hidden.</span></div>
+              <button class="btn btn--outline btn--sm" type="button" data-restore-hidden>Restore all</button>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Replay onboarding</strong><span>See the three welcome screens again.</span></div>
+              <button class="btn btn--outline btn--sm" type="button" data-replay-onboarding>Replay</button>
+            </div>
+          </section>
+
+          <section class="settings-group danger-zone" aria-labelledby="danger-title">
+            <div class="settings-group__head">
+              <h3 id="danger-title">Reset</h3>
+              <p>These actions cannot be undone.</p>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Clear favourites, collections &amp; history</strong><span>Keeps your uploaded images.</span></div>
+              <button class="btn btn--danger btn--sm" type="button" data-reset-state>Clear data</button>
+            </div>
+            <div class="setting-row">
+              <div class="setting-row__label"><strong>Delete everything</strong><span>Removes uploads, preferences and all local data.</span></div>
+              <button class="btn btn--danger btn--sm" type="button" data-reset-all>Delete all data</button>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="about-title">
+            <div class="stack">
+              <p class="eyebrow">About</p>
+              <h3 id="about-title" class="serif" style="font-size:var(--fs-xl)">MIREVA</h3>
+              <p class="secondary-text" style="font-size:var(--fs-sm)">A premium visual gallery and creative image workspace built with HTML5, CSS3 and vanilla JavaScript (ES6 modules). No frameworks, no backend, no tracking.</p>
+              <p class="muted" style="font-size:var(--fs-2xs)">CodeAlpha Frontend Development Internship · Task 1 — Image Gallery · by Nilusha Madhuwanthi</p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <noscript>
+    <div style="padding:2rem;text-align:center">
+      <h1>MIREVA needs JavaScript</h1>
+      <p>This gallery is built with vanilla JavaScript. Please enable it to browse your images.</p>
+    </div>
+  </noscript>
+  <script type="module" src="../js/pages/settings-page.js"></script>
+</body>
+</html>

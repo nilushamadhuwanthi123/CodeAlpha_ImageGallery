@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 960" width="640" height="960" role="img">
+  <defs>
+  <linearGradient id="bg1175" x1="0.000" y1="0.500" x2="1.000" y2="0.500">
+    <stop offset="0" stop-color="#240E20"/>
+    <stop offset="1" stop-color="#5A1C46"/>
+  </linearGradient>
+  <radialGradient id="vig1175" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1175" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="664" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1175" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="71"/>
+  </filter>
+  <filter id="soft21175" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="23"/>
+  </filter>
+  </defs>
+  <rect width="640" height="960" fill="url(#bg1175)"/>
+  <g>
+    <path d="M -50 668 C 192 472 448 513 690 316 L 690 478 C 448 674 192 633 -50 830 Z" fill="#D4696F" opacity="0.43" filter="url(#soft21175)"/>
+    <path d="M -50 373 C 192 208 448 981 690 816 L 690 955 C 448 1120 192 348 -50 513 Z" fill="#96305F" opacity="0.85" filter="url(#soft21175)"/>
+    <path d="M -50 371 C 192 157 448 961 690 747 L 690 880 C 448 1094 192 290 -50 504 Z" fill="#D4696F" opacity="0.52" filter="url(#soft21175)"/>
+    <path d="M -50 557 C 192 403 448 770 690 616 L 690 688 C 448 842 192 475 -50 629 Z" fill="#D4696F" opacity="0.42" filter="url(#soft21175)"/>
+    <path d="M -50 307 C 192 150 448 712 690 555 L 690 684 C 448 841 192 279 -50 436 Z" fill="#D4696F" opacity="0.63" filter="url(#soft21175)"/>
+  </g>
+  <rect width="640" height="960" filter="url(#grain1175)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="960" fill="url(#vig1175)"/>
+</svg>

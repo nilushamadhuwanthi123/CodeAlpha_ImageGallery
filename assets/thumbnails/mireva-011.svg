@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 427" width="640" height="427" role="img">
+  <defs>
+  <linearGradient id="bg1077" x1="0.854" y1="0.146" x2="0.146" y2="0.854">
+    <stop offset="0" stop-color="#201C22"/>
+    <stop offset="1" stop-color="#443C46"/>
+  </linearGradient>
+  <radialGradient id="vig1077" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1077" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="569" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1077" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="30"/>
+  </filter>
+  <filter id="soft21077" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="12"/>
+  </filter>
+  </defs>
+  <rect width="640" height="427" fill="url(#bg1077)"/>
+  <g>
+    <rect x="262" y="6" width="117" height="131" rx="64" fill="#7A6E77" opacity="0.44"/>
+    <rect x="136" y="150" width="112" height="127" rx="64" fill="#B3A7A6" opacity="0.60"/>
+    <rect x="385" y="143" width="126" height="141" rx="0" fill="#7A6E77" opacity="0.24"/>
+    <rect x="522" y="152" width="108" height="123" rx="64" fill="#443C46" opacity="0.61"/>
+    <rect x="3" y="288" width="122" height="136" rx="0" fill="#443C46" opacity="0.72"/>
+    <rect x="135" y="292" width="114" height="128" rx="0" fill="#EDE3DA" opacity="0.53"/>
+    <rect x="269" y="298" width="101" height="115" rx="64" fill="#B3A7A6" opacity="0.55"/>
+    <rect x="391" y="292" width="114" height="128" rx="64" fill="#B3A7A6" opacity="0.34"/>
+    <rect x="518" y="291" width="115" height="130" rx="0" fill="#443C46" opacity="0.22"/>
+    <circle cx="424" cy="90" r="171" fill="#EDE3DA" opacity="0.14" filter="url(#soft1077)"/>
+  </g>
+  <rect width="640" height="427" filter="url(#grain1077)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="427" fill="url(#vig1077)"/>
+</svg>

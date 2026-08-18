@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 427" width="640" height="427" role="img">
+  <defs>
+  <linearGradient id="bg1042" x1="0.047" y1="0.289" x2="0.953" y2="0.711">
+    <stop offset="0" stop-color="#0F2B25"/>
+    <stop offset="1" stop-color="#1E5945"/>
+  </linearGradient>
+  <radialGradient id="vig1042" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1042" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="209" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1042" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="41"/>
+  </filter>
+  <filter id="soft21042" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="10"/>
+  </filter>
+  </defs>
+  <rect width="640" height="427" fill="url(#bg1042)"/>
+  <g>
+    <path d="M -50 164 C 192 45 448 481 690 362 L 690 413 C 448 532 192 95 -50 215 Z" fill="#B9CDA4" opacity="0.74" filter="url(#soft21042)"/>
+    <path d="M -50 207 C 192 108 448 201 690 101 L 690 165 C 448 264 192 171 -50 270 Z" fill="#E8DFB8" opacity="0.53" filter="url(#soft21042)"/>
+    <path d="M -50 341 C 192 231 448 275 690 165 L 690 234 C 448 344 192 300 -50 410 Z" fill="#E8DFB8" opacity="0.63" filter="url(#soft21042)"/>
+  </g>
+  <rect width="640" height="427" filter="url(#grain1042)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="640" height="427" fill="url(#vig1042)"/>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" role="img">
+  <defs>
+  <linearGradient id="bg1189" x1="0.146" y1="0.146" x2="0.854" y2="0.854">
+    <stop offset="0" stop-color="#2E1024"/>
+    <stop offset="1" stop-color="#6E2450"/>
+  </linearGradient>
+  <radialGradient id="vig1189" cx="0.5" cy="0.45" r="0.78">
+    <stop offset="0.45" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+  </radialGradient>
+  <filter id="grain1189" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="28" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer in="g"><feFuncA type="linear" slope="0.32"/></feComponentTransfer>
+  </filter>
+  <filter id="soft1189" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="82"/>
+  </filter>
+  <filter id="soft21189" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="38"/>
+  </filter>
+  </defs>
+  <rect width="1600" height="1067" fill="url(#bg1189)"/>
+  <g>
+    <rect x="187" y="9" width="159" height="160" rx="0" fill="#E88A80" opacity="0.67"/>
+    <rect x="372" y="17" width="144" height="144" rx="0" fill="#B44370" opacity="0.69"/>
+    <rect x="714" y="3" width="172" height="172" rx="0" fill="#F8D2A6" opacity="0.64"/>
+    <rect x="899" y="10" width="158" height="159" rx="89" fill="#E88A80" opacity="0.20"/>
+    <rect x="1253" y="9" width="161" height="161" rx="0" fill="#F8D2A6" opacity="0.38"/>
+    <rect x="1429" y="7" width="165" height="165" rx="0" fill="#B44370" opacity="0.25"/>
+    <rect x="2" y="180" width="173" height="173" rx="0" fill="#F8D2A6" opacity="0.54"/>
+    <rect x="359" y="181" width="171" height="171" rx="0" fill="#6E2450" opacity="0.49"/>
+    <rect x="1265" y="199" width="136" height="136" rx="89" fill="#E88A80" opacity="0.63"/>
+    <rect x="11" y="366" width="157" height="157" rx="89" fill="#F8D2A6" opacity="0.25"/>
+    <rect x="724" y="369" width="152" height="152" rx="89" fill="#6E2450" opacity="0.71"/>
+    <rect x="1072" y="361" width="166" height="166" rx="89" fill="#E88A80" opacity="0.34"/>
+    <rect x="1252" y="363" width="163" height="163" rx="0" fill="#B44370" opacity="0.28"/>
+    <rect x="1439" y="373" width="143" height="143" rx="0" fill="#B44370" opacity="0.39"/>
+    <rect x="182" y="538" width="169" height="169" rx="0" fill="#F8D2A6" opacity="0.37"/>
+    <rect x="536" y="537" width="172" height="172" rx="89" fill="#6E2450" opacity="0.24"/>
+    <rect x="889" y="534" width="177" height="177" rx="89" fill="#6E2450" opacity="0.25"/>
+    <rect x="1249" y="538" width="169" height="169" rx="0" fill="#6E2450" opacity="0.19"/>
+    <rect x="1427" y="538" width="168" height="168" rx="0" fill="#E88A80" opacity="0.54"/>
+    <rect x="16" y="727" width="146" height="146" rx="89" fill="#E88A80" opacity="0.21"/>
+    <rect x="197" y="730" width="140" height="140" rx="0" fill="#E88A80" opacity="0.54"/>
+    <rect x="546" y="724" width="152" height="152" rx="89" fill="#E88A80" opacity="0.37"/>
+    <rect x="713" y="713" width="175" height="175" rx="0" fill="#E88A80" opacity="0.53"/>
+    <rect x="1082" y="727" width="147" height="147" rx="0" fill="#B44370" opacity="0.19"/>
+    <rect x="1260" y="727" width="147" height="147" rx="0" fill="#6E2450" opacity="0.61"/>
+    <rect x="1436" y="725" width="151" height="151" rx="0" fill="#E88A80" opacity="0.34"/>
+    <rect x="548" y="904" width="148" height="148" rx="89" fill="#E88A80" opacity="0.54"/>
+    <rect x="1068" y="891" width="175" height="175" rx="89" fill="#F8D2A6" opacity="0.66"/>
+    <rect x="1245" y="889" width="178" height="178" rx="89" fill="#F8D2A6" opacity="0.49"/>
+    <circle cx="933" cy="836" r="427" fill="#F8D2A6" opacity="0.14" filter="url(#soft1189)"/>
+  </g>
+  <rect width="1600" height="1067" filter="url(#grain1189)" opacity="0.5" style="mix-blend-mode:overlay"/>
+  <rect width="1600" height="1067" fill="url(#vig1189)"/>
+</svg>

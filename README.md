@@ -432,6 +432,12 @@ command centre → mobile layout → back to the dashboard.
 
 A full illustrated walkthrough is included as **`MIREVA_Project_Showcase.pdf`**.
 
+## License
+
+Released under the [MIT License](LICENSE) - Copyright (c) 2026 Nilusha Madhuwanthi.
+
+You are free to use, modify and distribute this project, including for commercial purposes, as long as the copyright notice and licence text are kept.
+
 ---
 
 <div align="center">

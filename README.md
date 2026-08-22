@@ -13,6 +13,7 @@ A production-quality responsive image gallery and creative visual workspace buil
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%20Modules-F4A261?style=for-the-badge&logo=javascript&logoColor=1a1a1a)](#)
 [![PWA](https://img.shields.io/badge/PWA-Offline%20Ready-E9C46A?style=for-the-badge&logo=pwa&logoColor=1a1a1a)](#)
 [![Accessibility](https://img.shields.io/badge/A11y-WCAG%20Minded-3F8F6B?style=for-the-badge)](#)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-mireva--imagegallery-16A34A?style=for-the-badge&logo=vercel&logoColor=white)](https://mireva-imagegallery-nilusha.vercel.app)
 
 <img src="screenshots/04-dashboard-light.png" alt="MIREVA dashboard" width="900">
 

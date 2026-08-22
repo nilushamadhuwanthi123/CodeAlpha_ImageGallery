@@ -34,3 +34,4 @@ screenshots/.tmp/
 
 # Local PDF-build source (not part of the app)
 _showcase.html
+.vercel
